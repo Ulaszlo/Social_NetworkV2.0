@@ -1,0 +1,14 @@
+.profileStatus{
+    position: absolute;
+    top: 65%;
+    left: 23%;
+    height: 51px;
+    font-size: 18px;
+}
+.aboutMe{
+    font-size: 18px;
+    font-family: Algerian;
+}
+.profileLight:hover{
+color:rgba(42,151,222,0.32);
+}

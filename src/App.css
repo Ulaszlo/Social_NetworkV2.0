@@ -1,0 +1,23 @@
+.app-wrapper {
+    min-height: 100%;
+    overflow: hidden;
+    margin: 0 auto;
+    display: grid;
+    grid-template-rows: 60px 2fr;
+    grid-template-columns: 1fr 10fr;
+    grid-template-areas:
+            "h h"
+            "n c";
+    background-color:rgba(188,207,172,0.32);
+}
+
+.app-wraper-content {
+    grid-area: c;
+    color: black;
+    padding-right: 50%;
+    margin-left: 24%;
+}
+
+
+
+
