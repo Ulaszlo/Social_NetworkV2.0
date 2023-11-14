@@ -31,5 +31,4 @@ export const ProfileStatusFC = (props: any) => {
             
         </div>)
 }
-// onChange={onStatusChanged}
 

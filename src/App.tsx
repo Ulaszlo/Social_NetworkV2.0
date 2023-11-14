@@ -11,6 +11,7 @@ import {connect} from "react-redux";
 import {initializedApp} from "./redux/Reducers/app-reducer";
 import {compose} from "redux";
 import {Preloader} from "./components/common/Preloader";
+import {News} from "./components/News/News";
 
 
 
@@ -38,6 +39,7 @@ class App extends React.Component<mapStatePropsType & mapDispatchPropsType> {
                             <Route exact path="/profile/:userId?" component={ProfileContainer}/>
                             <Route exact path="/login" component={Login}/>
                             <Route exact path="/users" component={UsersContainer}/>
+                            <Route exact path="/news" component={News}/>
                         </>
                     </div>
                 </div>
