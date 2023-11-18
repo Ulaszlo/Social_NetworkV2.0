@@ -27,7 +27,7 @@ export const ProfileInfo = (props: ProfileInfoType) => {
         <div className={s.profileInfoContent}>
             <img className={s.profileUserPhoto} src={props.profile.photos.large || userAvatar }/>
           <div>{props.isOwner && <input onChange={onChangeFile} type='file'/>}</div>
-            <div className={s.userName}>{props.profile.fullName}</div>
+            <span className={s.userName}>{props.profile.fullName}</span>
             <div title="изменить статус"><ProfileStatusFC UserStatus={props.UserStatus} updateUserStatus={props.updateUserStatus}/></div>
             <ProfileData profile={props.profile}/>
         </div>

@@ -1,14 +1,15 @@
-import s from './Dialogs.module.css'
+import style from './Dialogs.module.css'
 import '../../App.css'
 import {Message} from "./Message/Message";
 import {DialogsItems} from "./DialogsItem/DialogsItems";
 import React from "react";
 import {Redirect} from "react-router-dom";
 import {DialogsDataType, DialogType} from "../../redux/Reducers/dialogs-reducer";
+import userAvatar from "../../assets/imges/avaInMessaages.png"
 type DialogsPropsType = {
-    dialogsPage:DialogsDataType
-    dialogsData:Array<DialogType>
-    isAuth:boolean
+    dialogsPage: DialogsDataType
+    dialogsData: Array<DialogType>
+    isAuth: boolean
 }
 export const Dialogs = (props: DialogsPropsType) => {
     // let newPostMessageProps = props.newPostMessage
@@ -28,7 +29,8 @@ export const Dialogs = (props: DialogsPropsType) => {
     let state = props.dialogsPage
 
 // @ts-ignore
-    let dialogsElement = state.dialogsData.map((d: { name: string; id: number; }) => < DialogsItems name={d.name} id={d.id}/> )
+    let dialogsElement = state.dialogsData.map((d: { name: string; id: number; }) => < DialogsItems name={d.name}
+                                                                                                    id={d.id}/>)
     // @ts-ignore
     let messageElement = state.messageData.map((message: { message: string; id: number; }) => <Message
         message={message.message} id={message.id}/>)
@@ -36,28 +38,28 @@ export const Dialogs = (props: DialogsPropsType) => {
     if (!props.isAuth) {
         return <Redirect to={"/login"}/>
     }
-    return (
-
-        <div className={s.dialogs}>
-
-            <div >
-
-               <div className={s.dialogsItem}>{dialogsElement}</div>
-            </div>
-
-            <div className={s.messages}>
-                <div>{messageElement}</div>
-                {/*<div>*/}
-                    {/*<div> <textarea value={newPostMessageProps}*/}
-                    {/*                onChange={newValueOnChangeMessage}*/}
-                    {/*                ref={newMessageElement}> </textarea></div>*/}
-                {/*</div>*/}
-                {/*<div>*/}
-                {/*    <button onClick={addMessageButton}>Add message</button>*/}
-                {/*</div>*/}
-            </div>
-
+    return (<body>
+        <div className={style.wrapper}>
+            <div className={style.block}> {dialogsElement}</div>
+            <div className={style.block}>{messageElement}</div>
         </div>
+        </body>
+        //{/*<div> </div> <></>*/}
+
+
+        // {/*<div className={s.messages}>*/}
+        // {/*    <div></div>*/}
+        // {/*    /!*<div>*!/*/}
+        // {/*        /!*<div> <textarea value={newPostMessageProps}*!/*/}
+        // {/*        /!*                onChange={newValueOnChangeMessage}*!/*/}
+        // {/*        /!*                ref={newMessageElement}> </textarea></div>*!/*/}
+        // {/*    /!*</div>*!/*/}
+        // {/*    /!*<div>*!/*/}
+        //{/*    /!*    <button onClick={addMessageButton}>Add message</button>*!/*/}
+        //{/*    /!*</div>*!/*/}
+        // {/*</div>*/}
+
+
     )
 
 }

@@ -31,10 +31,10 @@ class App extends React.Component<mapStatePropsType & mapDispatchPropsType> {
                 } }/>
                 <div className='app-wrapper'>
                     <Nav/>
-                    <div className='app-wraper-content'>
+                    <div className='app-wrapper-content'>
 
                         <>
-                            <Route exact path={"/dialogs"} component={DialogsContainer}/>
+                            <Route  exact path={"/dialogs"} component={DialogsContainer}/>
                             {/*// @ts-ignore*/}
                             <Route exact path="/profile/:userId?" component={ProfileContainer}/>
                             <Route exact path="/login" component={Login}/>

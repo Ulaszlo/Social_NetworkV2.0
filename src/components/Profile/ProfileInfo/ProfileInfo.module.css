@@ -1,11 +1,30 @@
 .profileInfoContent{
-    width: 911px;
-    height: 190px;
-    margin-top: 15px;
+    /*width: 911px;*/
+    /*height: 190px;*/
+    /*margin-top: -3%;*/
+    /*background-color: white;*/
+    /*border-radius: 22px;*/
+    /*border: 0.5mm ridge rgb(109 106 106 / 15%);*/
+    /*position: relative;*/
+
+
+    /*width: 250%;*/
+    /*height: 25%;*/
+    /*margin-top: 5%;*/
+    /*background-color: white;*/
+    /*border-radius: 25px;*/
+    /*border: 0.5mm ridge rgb(109 106 106 / 15%);*/
+    /*position: static;*/
+
+
+    margin-top: -3%;
     background-color: white;
     border-radius: 22px;
     border: 0.5mm ridge rgb(109 106 106 / 15%);
     position: relative;
+    grid-gap: 10%;
+    width: 70vw;
+
 }
 .profileUserPhoto{
     width: 150px;

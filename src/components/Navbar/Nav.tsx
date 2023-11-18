@@ -4,17 +4,13 @@ import {Link} from "react-router-dom";
 export const Nav = () => {
     return (
         <nav className={s.nav}>
-            {/*<div>*/}
-            {/*    <img*/}
-            {/*        src="https://freesvg.org/storage/img/thumb/tree6.png"/>*/}
-            {/*</div>*/}
-
-            <div className={s.navItem}>
+            <div className={s.navItemWrapper}>
+                <div className={s.navItem}>
                 <div className={s.navDiv}>
-                    <div className={s.item}><Link to='/profile'>Profile </Link></div>
+                    <div className={s.item}><Link  to='/profile'>Profile </Link></div>
                 </div>
                 <div className={s.navDiv}>
-                    <div className={s.item}><Link to="/dialogs">Messages</Link></div>
+                    <div className={s.item}><Link to="/dialogs">Message</Link></div>
                 </div>
                 <div className={s.navDiv}>
                     <div className={s.item}><Link to="/music">Music</Link></div>
@@ -28,7 +24,8 @@ export const Nav = () => {
                 <div className={s.navDiv}>
                     <div className={s.item}><Link to="/settings">Settings</Link></div>
                 </div>
-            </div>
+            </div></div>
+
         </nav>
     )
 }
