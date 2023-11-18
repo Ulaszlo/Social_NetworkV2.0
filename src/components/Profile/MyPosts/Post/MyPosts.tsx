@@ -26,7 +26,7 @@ export const MyPosts = React.memo((props: MyPostType & PostType ) => {
         <div className={s.postBlock}>
 
 
-            <div className={s.r}> <form  onSubmit={myPostFormik.handleSubmit}>
+            <div className={s.r}> <form className={s.allMyPostForm}  onSubmit={myPostFormik.handleSubmit}>
                 <TextField
                     label="Новый пост"
                     margin="normal"
