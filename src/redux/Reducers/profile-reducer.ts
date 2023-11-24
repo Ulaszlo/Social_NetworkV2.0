@@ -160,4 +160,6 @@ export type ContactsDataType={
     github:string
     instagram:string
     vk:string
+    website:string
+
 }

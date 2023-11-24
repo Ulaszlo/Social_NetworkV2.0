@@ -12,6 +12,7 @@ import {initializedApp} from "./redux/Reducers/app-reducer";
 import {compose} from "redux";
 import {Preloader} from "./components/common/Preloader";
 import {News} from "./components/News/News";
+import EditProfileData from "./components/Profile/EditProfileData/EditProfileData";
 
 
 
@@ -40,6 +41,7 @@ class App extends React.Component<mapStatePropsType & mapDispatchPropsType> {
                             <Route exact path="/login" component={Login}/>
                             <Route exact path="/users" component={UsersContainer}/>
                             <Route exact path="/news" component={News}/>
+                            <Route exact path="/edit" component={EditProfileData}/>
                         </>
                     </div>
                 </div>

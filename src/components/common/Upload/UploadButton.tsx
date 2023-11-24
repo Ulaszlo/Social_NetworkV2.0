@@ -25,9 +25,9 @@ export default function  InputFileUpload(props:any) {
     }
 
     return (
-        <Button component="label" variant="contained" startIcon={<img className={style.uploadIcon} src={uploadIcon}/>} >
-            Upload file
-            <VisuallyHiddenInput type="file" onChange={onChangeFile} />
+        <Button color="info" size="small" component="label" variant="contained" startIcon={<img className={style.uploadIcon} src={uploadIcon}/>} >
+            Upload photo
+            <VisuallyHiddenInput  type="file" onChange={onChangeFile} />
         </Button>
     );
 }

@@ -1,22 +1,4 @@
 .profileInfoContent{
-    /*width: 911px;*/
-    /*height: 190px;*/
-    /*margin-top: -3%;*/
-    /*background-color: white;*/
-    /*border-radius: 22px;*/
-    /*border: 0.5mm ridge rgb(109 106 106 / 15%);*/
-    /*position: relative;*/
-
-
-    /*width: 250%;*/
-    /*height: 25%;*/
-    /*margin-top: 5%;*/
-    /*background-color: white;*/
-    /*border-radius: 25px;*/
-    /*border: 0.5mm ridge rgb(109 106 106 / 15%);*/
-    /*position: static;*/
-
-
     margin-top: -3%;
     background-color: white;
     border-radius: 22px;
@@ -24,30 +6,28 @@
     position: relative;
     grid-gap: 10%;
     width: 70vw;
+    display: flex;
+    justify-content: space-around;
 
 }
 .profileUserPhoto{
     width: 150px;
     height: 150px;
-border-radius: 150px;
-    padding: 23px;
+    border-radius: 150px;
+    padding: 2vw;
+    margin-right: 20vw;
 }
-/*.profileInfo{*/
-/*    margin-left: 35px;*/
 
-/*}*/
 .yyy{
     /*margin-left: 298px;*/
     /*margin-top: -145px;*/
  /*padding-top: 5px;*/
 }
 .userName{
-    width: 38%;
     position: absolute;
-    top: 40%;
-    left: 23%;
-    height: 51px;
-    font-size: 28px;
+    top: 13vh;
+    left: 16vw;
+    font-size: 2rem;
     font-family: "Arial";
 }
 .contacts{
@@ -71,4 +51,17 @@ border-radius: 150px;
     width: 20px;
     height: 20px;
     padding-left: 5%;
+}
+.editLink{
+    text-decoration: none;
+    color: #6f7781;
+}
+.editLinkWrapper{
+    border: 0.5mm ridge rgb(109 106 106 / 15%);
+    border-radius: 20px;
+    width: max-content;
+    height: max-content;
+    padding: 1vw;
+    background: rgba(188,207,172,0.32);
+    margin-top: 11vh;
 }

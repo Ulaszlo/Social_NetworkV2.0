@@ -3,6 +3,7 @@ import photo from '../../assets/imges/Professional-Man-Avatar.png'
 import photo2 from '../../assets/imges/user-images.png'
 import photo3 from '../../assets/imges/redLikeIcon.png'
 import style from './News.module.css'
+import InputFileUpload from "../common/Upload/UploadButton";
 type NewsPropsType = {}
 export const News = (props: NewsPropsType) => {
     let arr = [photo, photo2, photo3]
@@ -19,6 +20,8 @@ export const News = (props: NewsPropsType) => {
             <div><img className={style.groupLogo} src={photo}/> Футбол АПЛ</div>
             <div>
                 <button onClick={foo2}>left</button><span >{resultArr[n]}</span><button onClick={foo}>Next</button>
+                <InputFileUpload/>
+
             </div>
         </div>
     )
