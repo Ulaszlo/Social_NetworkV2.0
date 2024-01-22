@@ -1,17 +1,20 @@
 import React from "react";
 import {Header} from "./Header";
 import {connect} from "react-redux";
-import {AuthInitialStateType, getAuthUserData, logout, setAuthUserData} from "../../redux/Reducers/auth-reducer";
-type HeaderContainerType =mapStateToPropsType & mapDispatchToPropsType;
+import {getAuthUserData, logout, setAuthUserData} from "../../redux/Reducers/auth-reducer";
+import {AppStateType} from "../../redux/redux-store";
+
+type HeaderContainerType = mapStateToPropsType & mapDispatchToPropsType;
 type mapStateToPropsType = {
     login: null | string
     isFetching: null | boolean
     isAuth: boolean
+    userAvatar: string
 };
 type mapDispatchToPropsType = {
     logout: () => void
-    getAuthUserData:() => void
-    authStatus:() => void
+    getAuthUserData: () => void
+    authStatus: () => void
 };
 
 class HeaderComponent extends React.Component<HeaderContainerType> {
@@ -33,14 +36,13 @@ class HeaderComponent extends React.Component<HeaderContainerType> {
     }
 }
 
-const mapStateToProps = (state: AuthInitialStateType) => {
+const mapStateToProps = (state: AppStateType) => {
 
     return {
-        // @ts-ignore
         isAuth: state.auth.isAuth,
-        // @ts-ignore
         login: state.auth.login,
+        userAvatar: state.profilePage.profile?.photos?.small
     }
 }
 
-export default connect(mapStateToProps, {setAuthUserData,getAuthUserData: getAuthUserData,logout})(HeaderComponent)
+export default connect(mapStateToProps, {setAuthUserData, getAuthUserData: getAuthUserData, logout})(HeaderComponent)

@@ -4,7 +4,7 @@ import {Dispatch} from "redux";
 export type ProfileInitialStateType = {
     newPostText: string
     posts: Array<PostType>
-    profile:TypeProfileDataType | null | number
+    profile:TypeProfileDataType | null
     UserStatus: string
 }
 // Тип объетка в массиве posts
@@ -59,6 +59,7 @@ export const profileReducer = (state = initialState, action: AllActionsType): Pr
         //         newPostText: action.newText
         //     }
         case SET_USER_PROFILE: {
+            // @ts-ignore
             return {...state, profile: action.profile}
         }
 
