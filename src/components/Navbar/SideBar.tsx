@@ -19,6 +19,7 @@ import {
 import {Link} from "react-router-dom";
 import React from "react";
 import style from "./SideBar.module.css"
+
 type SideBarType = {}
 export const Sidebar = (props: SideBarType) => {
     return (
@@ -36,28 +37,34 @@ export const Sidebar = (props: SideBarType) => {
                         </Link>
                     </ListItem>
                     <ListItem disablePadding>
-                        <ListItemButton component="a" href="#simple-list">
-                            <ListItemIcon>
-                                <Article/>
-                            </ListItemIcon>
-                            <ListItemText primary="Pages"/>
-                        </ListItemButton>
+                        <Link to='/dialogs' className={style.link}>
+                            <ListItemButton>
+                                <ListItemIcon>
+                                    <Article/>
+                                </ListItemIcon>
+                                <ListItemText primary="Dialogs"/>
+                            </ListItemButton>
+                        </Link>
                     </ListItem>
                     <ListItem disablePadding>
-                        <ListItemButton component="a" href="#simple-list">
-                            <ListItemIcon>
-                                <Group/>
-                            </ListItemIcon>
-                            <ListItemText primary="Groups"/>
-                        </ListItemButton>
+                        <Link to='/users' className={style.link}>
+                            <ListItemButton>
+                                <ListItemIcon>
+                                    <Group/>
+                                </ListItemIcon>
+                                <ListItemText primary="Users"/>
+                            </ListItemButton>
+                        </Link>
                     </ListItem>
                     <ListItem disablePadding>
-                        <ListItemButton component="a" href="#simple-list">
-                            <ListItemIcon>
-                                <Storefront/>
-                            </ListItemIcon>
-                            <ListItemText primary="Marketplace"/>
-                        </ListItemButton>
+                        <Link to='/news' className={style.link}>
+                            <ListItemButton>
+                                <ListItemIcon>
+                                    <Storefront/>
+                                </ListItemIcon>
+                                <ListItemText primary="News"/>
+                            </ListItemButton>
+                        </Link>
                     </ListItem>
                     <ListItem disablePadding>
                         <ListItemButton component="a" href="#simple-list">
@@ -73,21 +80,6 @@ export const Sidebar = (props: SideBarType) => {
                                 <Settings/>
                             </ListItemIcon>
                             <ListItemText primary="Settings"/>
-                        </ListItemButton>
-                    </ListItem>
-                    <ListItem disablePadding>
-                        <ListItemButton component="a" href="#simple-list">
-                            <ListItemIcon>
-                                <AccountBox/>
-                            </ListItemIcon>
-                            <ListItemText primary="Profile"/>
-                        </ListItemButton>
-                    </ListItem>
-                    <ListItem disablePadding>
-                        <ListItemButton component="a" href="#simple-list">
-                            <ListItemIcon>
-                                <ModeNight/>
-                            </ListItemIcon>
                         </ListItemButton>
                     </ListItem>
                 </List>

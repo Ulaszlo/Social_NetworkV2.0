@@ -9,6 +9,7 @@ export type ProfileInitialStateType = {
 }
 // Тип объетка в массиве posts
 export type PostType = {
+    [x: string]: any;
     message: string
     likeCount: number
 }

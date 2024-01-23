@@ -1,18 +1,19 @@
 import React from 'react';
-import {AddPostActionCreator, PostType, updateUserStatus} from "../../../../redux/Reducers/profile-reducer";
+import {
+    AddPostActionCreator,
+    PostType,
+    TypeProfileDataType,
+    updateUserStatus
+} from "../../../../redux/Reducers/profile-reducer";
 import {MyPosts} from "./MyPosts";
 import {connect} from "react-redux";
 import {AppStateType} from "../../../../redux/redux-store";
 
-export type MyPostType= mapStatePropsType & mapDispatchPropsType & PropsType
-type PropsType= {
-    className:string
-    profile:number | null
-}
+export type MyPostType= mapStatePropsType & mapDispatchPropsType
 type mapStatePropsType ={
     posts: PostType
     newPostText:string
-
+    profile:TypeProfileDataType | null
 }
 type mapDispatchPropsType={
     updateNewPostText:(text: string)=>void
@@ -21,7 +22,8 @@ type mapDispatchPropsType={
 let mapStateToProps = (state: AppStateType) => {
     return {
         posts: state.profilePage.posts,
-        newPostText: state.profilePage.newPostText
+        newPostText: state.profilePage.newPostText,
+        profile:state.profilePage.profile,
 
     }
 }

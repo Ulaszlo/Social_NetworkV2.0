@@ -1,31 +1,34 @@
-import s from './ProfileInfo.module.css'
-import {ProfileStatusFC} from "./ProfileStatusFC";
-import { TypeProfileDataType} from "../../../redux/Reducers/profile-reducer";
-import userAvatar from "../../../assets/imges/user-images.png"
-import React  from 'react';
-import { ProfileData } from '../ProfileData';
-import InputFileUpload from "../../common/Upload/UploadButton";
+import * as React from 'react';
+import Card from '@mui/material/Card';
+import CardHeader from '@mui/material/CardHeader';
+import Typography from '@mui/material/Typography';
+import style from './ProfileInfo.module.css'
+import userAvatar from '../../../assets/imges/user-images.png'
+import {TypeProfileDataType} from "../../../redux/Reducers/profile-reducer";
+
 type ProfileInfoType = {
-    profile:TypeProfileDataType
+    profile: TypeProfileDataType
     UserStatus: string
     updateUserStatus: (NewStatus: string) => void
-    getUserStatus:(userId:number) => void
-    getProfile:(userId:number)=>void
-    isOwner:boolean
-    savePhoto:(userPhoto:any)=>void
+    getUserStatus: (userId: number) => void
+    getProfile: (userId: number) => void
+    isOwner: boolean
+    savePhoto: (userPhoto: any) => void
 }
-export const ProfileInfo = (props: ProfileInfoType) => {
 
-
+export function ProfileInfo(props: ProfileInfoType) {
 
     return (
-        <div className={s.profileInfoContent}>
-            <img className={s.profileUserPhoto} src={props.profile.photos.large || userAvatar }/>
-          <div>{props.isOwner && <InputFileUpload  savePhoto={props.savePhoto}   />}</div>
-            <span className={s.userName}>{props.profile.fullName}</span>
-            <div title="изменить статус"><ProfileStatusFC UserStatus={props.UserStatus} updateUserStatus={props.updateUserStatus}/></div>
-            <ProfileData profile={props.profile}/>
-        </div>
-
+        <Card sx={{minWidth: 1000,maxWidth: 1000, marginBottom:6,borderRadius:7, borderBottomColor:'rgba(0,79,194,0.31)'}}>
+            <CardHeader
+                avatar={
+                    <img className={style.userAvatar} src={props.profile.photos.large || userAvatar}/>
+                }
+                title={<Typography variant="h4" >{props.profile?.fullName || "User"} </Typography>}
+                subheader={<div className={style.statusWrapper}> {props.UserStatus || "Frontend developer with learning skills and the ability to solve problems without giving up." +
+                    " My goal as a developer is to apply my technical skills" +
+                    " in IT development and troubleshooting to further the company's vision and mission."}</div>}
+            />
+        </Card>
     );
-};
+}
