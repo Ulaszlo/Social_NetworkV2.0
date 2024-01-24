@@ -1,37 +1,4 @@
-
-.postBlock{
-
-    position: relative;
-
-}
-.posts{
-    padding-top: 75px;
-
-}
-.postsTitle{
-
-}
-.inputPostStyle{
-border-radius: 10px;
-    width: 50%;
-
-}
-.r{
-    width: 70vw;
-    border-radius: 17px;
-    background-color: white;
-    height: fit-content;
-    margin-top: 60px;
-    border: 1mm ridge rgb(109 106 106 / 15%);
-}
-
-
-
-.addPostButton{
-    margin: -45px;
-    padding-left: 42px;
-    padding-top: 48px;
-}
-.allMyPostForm{
-    padding: 2%;
+.userAvatar {
+    width: 20px;
+    border-radius: 40px;
 }

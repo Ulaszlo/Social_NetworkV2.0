@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { styled } from '@mui/material/styles';
+import {styled} from '@mui/material/styles';
 import Button from '@mui/material/Button';
-import uploadIcon from '../../../assets/imges/user-images.png'
-import style from './Upload.module.css'
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+
 const VisuallyHiddenInput = styled('input')({
     clip: 'rect(0 0 0 0)',
     clipPath: 'inset(50%)',
@@ -15,9 +15,8 @@ const VisuallyHiddenInput = styled('input')({
     width: 1,
 });
 
-export default function  InputFileUpload(props:any) {
-    const onChangeFile=(e:any)=>{
-        debugger;
+export default function InputFileUpload(props: any) {
+    const onChangeFile = (e: any) => {
         if (e.target.files.length) {
             props.savePhoto(e.target.files[0])
         }
@@ -25,9 +24,9 @@ export default function  InputFileUpload(props:any) {
     }
 
     return (
-        <Button component="label" variant="contained" startIcon={<img className={style.uploadIcon} src={uploadIcon}/>} >
+        <Button component="label" variant="contained" startIcon={<CloudUploadIcon/>} >
             Upload file
-            <VisuallyHiddenInput type="file" onChange={onChangeFile} />
+            <VisuallyHiddenInput type="file" onChange={onChangeFile}/>
         </Button>
     );
 }
