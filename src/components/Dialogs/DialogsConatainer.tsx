@@ -14,7 +14,7 @@ import {AppStateType} from "../../redux/redux-store";
 const mapStateToProps = (state:AppStateType) => {
     return {
         dialogsPage: state.dialogsPage,
-        newPostMessage: state.dialogsPage.newPostMessage,
+
     }
 }
 const mapDispatchToProps = (dispatch: Dispatch) => {

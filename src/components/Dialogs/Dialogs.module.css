@@ -1,54 +1,8 @@
-/*.dialogs{*/
-/*display: grid;*/
-/*    grid-template-columns: 2fr 10fr;*/
-
-/*}*/
-
-/*.dialogsItem {*/
-/*padding: 10px;*/
-
-/*}*/
-/*.dialogsItem a{*/
-/*    text-decoration: none;*/
-/*    color:#6f7781;*/
-/*    text-decoration: none;*/
-/*}*/
-
-
-/*.messages{*/
-/*padding: 10px;*/
-/*    color: black;*/
-/*}*/
-
-/*messages .message{*/
-
-/*}*/
-/*.avatar{*/
-/*    width: 30px;*/
-/*    border-radius: 15px;*/
-/*}*/
-.wrapper {
-    max-width: 1900px;
-    min-width: 300px;
-    display: flex;
-    border: 3px solid mediumvioletred;
-    width: 200%;
-    height: 300px;
-    min-height: 200px;
-    max-height: 500px;
-}
-.block {
-    display: inline-block;
-    border: 1px solid blue;
-    margin: 2px;
-}
 .userAvatar{
-    width: 20px;
-    height: 20px;
+    width: 40px;
     border-radius: 40px;
 }
-
-.messageItem{
-    color: #584b4b;
-    margin: 12%;
+.userName{
+    text-decoration: none;
+    color: black;
 }

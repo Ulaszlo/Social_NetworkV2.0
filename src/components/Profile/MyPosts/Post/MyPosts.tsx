@@ -2,7 +2,7 @@ import style from './MyPosts.module.css'
 import {Post} from "./Post";
 import React from "react";
 import {useFormik} from "formik";
-import {Button, ButtonProps, TextField} from "@mui/material";
+import {Button, ButtonProps, Dialog, TextField} from "@mui/material";
 import {MyPostType} from "./MyPostsContainer";
 import Card from "@mui/material/Card";
 import {styled} from "@mui/material/styles";
@@ -43,10 +43,12 @@ export const MyPosts = React.memo((props: MyPostType) => {
                 <form onSubmit={myPostFormik.handleSubmit}>
                     {/*<img className={style.userAvatar} src={props.profile?.photos.small || StandardUserAvatar}/>*/}
                     <ExpandMore
+
                         expand={expanded}
-                        onClick={handleExpandClick}
+                        onDoubleClick={handleExpandClick}
                         aria-expanded={expanded}
                         aria-label="show more"
+
                     >
                         <TextField
                             sx={{paddingLeft: 6, width: 900, paddingRight: 6, minHeight: 20}}

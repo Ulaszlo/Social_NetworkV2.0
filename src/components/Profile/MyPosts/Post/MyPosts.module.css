@@ -2,3 +2,6 @@
     width: 20px;
     border-radius: 40px;
 }
+.button, button:focus, button:hover, button:active {
+    outline: none !important;
+}
