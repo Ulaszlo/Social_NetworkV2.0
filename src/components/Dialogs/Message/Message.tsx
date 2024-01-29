@@ -1,81 +1,64 @@
 import * as React from 'react';
 import Button from '@mui/material/Button';
-import Dialog from '@mui/material/Dialog';
-import DialogTitle from '@mui/material/DialogTitle';
-import DialogContent from '@mui/material/DialogContent';
-import DialogActions from '@mui/material/DialogActions';
 import {useFormik} from "formik";
-import DialogContentText from '@mui/material/DialogContentText';
 import style from './Message.module.css'
 import {TextField} from "@mui/material";
-import IconButton from '@mui/material/IconButton';
-import CloseIcon from '@mui/icons-material/Close';
+import Card from "@mui/material/Card";
+import {DialogsInitialStateType, DialogType} from "../../../redux/Reducers/dialogs-reducer";
+import CardHeader from '@mui/material/CardHeader';
+import {useState} from "react";
+import {TypeProfileDataType} from "../../../redux/Reducers/profile-reducer";
+
+type MessageType = {
+    personalDialog: DialogsInitialStateType
+    messageId:any
+    profile:TypeProfileDataType | null
+}
+
+export function Message(props: MessageType) {
+    let currentPersonalDialog= props.personalDialog.dialogsData.filter((d)=>d.id==props.messageId)
+    const myPostFormik = useFormik({
+        initialValues: {
+            newMessage: '',
+        },
+        onSubmit: values => {
+            console.log(values.newMessage)
+
+        },
+    });
 
 
-
-export  function Message(props:any) {
-        const myPostFormik = useFormik({
-            initialValues: {
-                newPost: '',
-            },
-            onSubmit: values => {
-               // props.addPost(values.newPost)
-                console.log(values.newPost)
-            },
-        });
 
     return (
-        <React.Fragment>
+        <Card className={style.card}   sx={{minWidth:1000,minHeight:400,}}>
+            {currentPersonalDialog.map((d)=>
+                <Card>
+                <CardHeader
+                    avatar={<img className={style.userPhoto} src={d.photo}/>}
+                    action={d.date}
+                    subheader={d.message}
+                />
+            </Card>
 
-            <Button variant="outlined" onClick={props.handleClickOpen}>
-                Open dialog
-            </Button>
-            <Dialog
-                open={props.open}
-                onClose={props.handleClose}
-                aria-labelledby="alert-dialog-title"
-                aria-describedby="alert-dialog-description"
-            >
-                <DialogTitle id="alert-dialog-title">
-                    {"Personal message"}
-                </DialogTitle>
-                <IconButton
-                    aria-label="close"
-                    onClick={props.handleClose}
-                    sx={{
-                        position: 'absolute',
-                        right: 8,
-                        top: 8,
-                        color: 'black'
-                    }}
-                >
-                    <CloseIcon />
-                </IconButton>
-                <DialogContent >
+            )}
+            <form onSubmit={myPostFormik.handleSubmit}>
+            <TextField
+                sx={{flex:'auto'}}
+                multiline
+                placeholder="Write message"
+                id="newMessage"
+                name="newMessage"
+                type="text"
+                onChange={myPostFormik.handleChange}
+                value={myPostFormik.values.newMessage}
+                variant="standard"
+                margin="dense"
+                required
+                fullWidth
+            />
+                <Button variant="text" type='submit'>Add Post</Button>
+            </form>
+        </Card>
 
-                    <DialogContentText id="alert-dialog-description">
-                        <img className={style.userPhoto} src={props.photo}/>
-                        {props.message}
-                    </DialogContentText>
-                </DialogContent>
-                <DialogActions>
-                    <form onSubmit={myPostFormik.handleSubmit}>
-                    <TextField
-                        multiline
-                        placeholder="Want to send messages?"
-                        id="newPost"
-                        name="newPost"
-                        type="text"
-                        onChange={myPostFormik.handleChange}
-                        value={myPostFormik.values.newPost}
-                        variant="standard"
-                        margin="dense"
-
-                    />
-                        <Button variant="outlined" type='submit'>Add Post</Button>
-                    </form>
-                </DialogActions>
-            </Dialog>
-        </React.Fragment>
     );
 }

@@ -9,24 +9,16 @@ import {Message} from "../Message/Message";
 
 export const DialogsItems = (props: DialogType) => {
     let path = "/profile/" + props.id;
-        const [open, setOpen] = React.useState(false);
-
-        const handleClickOpen = () => {
-            setOpen(true);
-        };
-
-        const handleClose = () => {
-            setOpen(false);
-        };
-
+    let messagePath = "/personalMessages/" + props.id
         return (
-
+                    <Link to={messagePath} className={style.userName}>
         <Card sx={{
-            minWidth: 1000,
+            minWidth: 800,
             maxWidth: 1000,
-            marginBottom: 4,
+            marginBottom: 1,
             borderRadius: 7,
-            borderBottomColor: 'rgba(0,79,194,0.31)'
+            borderBottomColor: 'rgba(0,79,194,0.31)',
+
         }}>
             <CardHeader
                 avatar={
@@ -36,15 +28,12 @@ export const DialogsItems = (props: DialogType) => {
                 }
                 title={<Typography variant="h6"><Link className={style.userName}
                                                       to={path}>{props.name}</Link></Typography>}
-                subheader={<Typography variant="h5">{props.message}</Typography>}
-                action={<Typography>{props.date}</Typography>}
-            />
-            <Message message={props.message} open={open}
-                     handleClickOpen={handleClickOpen} handleClose={handleClose}
-            name={props.name} photo={props.photo}
+                subheader={<Typography variant="subtitle2">{props.message}</Typography>}
+                action={<Typography sx={{paddingRight:2,paddingTop:2}} >{props.date}</Typography>}
             />
         </Card>
 
+                    </Link>
     )
     // <div className={s.dialog + ' ' + s.dialogsItem}>
     //  <div className={s.block}> <img className={s.userAvatar} src={userAvatar}/></div>    <Link to={path}>{props.name}</Link>

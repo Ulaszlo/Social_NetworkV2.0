@@ -17,6 +17,7 @@ type PostType = {
     message:{}
     likeCount :number
     profile:TypeProfileDataType | null
+    photo:string | undefined
 }
 
 export function Post (props:PostType) {
@@ -37,7 +38,7 @@ export function Post (props:PostType) {
             <CardMedia
                 component="img"
                 height="250"
-                image="https://masterpiecer-images.s3.yandex.net/13fd5148748e11ee8edb2aacdc0146ad:upscaled"
+                image={props.photo}
                 alt="Post Media"
             />
             <CardContent>

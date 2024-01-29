@@ -1,6 +1,6 @@
 // type for initialState in Dialogs
 export type DialogsInitialStateType = {
-    newPostMessage: string
+    // newPostMessage: string
     dialogsData: DialogsDataType
     // messageData: MessageDataType
 }
@@ -23,7 +23,7 @@ export type DialogsDataType = Array<DialogType>
 export type MessageDataType = Array<MessageType>
 // initialState for Dialogs
 let initialState: DialogsInitialStateType = {
-    newPostMessage: 'ggg',
+    // newPostMessage: 'ggg',
     dialogsData: [
         {id: 30610, name: 'Mariya',photo:"https://social-network.samuraijs.com/activecontent/images/users/30610/user.jpg?v=15",message:'Hi',date:'08:19'},
         {id: 30535, name: 'Aleksandr Black',photo:"https://social-network.samuraijs.com/activecontent/images/users/30535/user.jpg?v=15",message:'How are you?',date:'14 Сентября'},

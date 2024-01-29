@@ -1,8 +1,10 @@
-import '../../App.css'
 import {DialogsItems} from "./DialogsItem/DialogsItems";
 import React from "react";
 import {Redirect} from "react-router-dom";
 import {DialogsDataType, DialogType} from "../../redux/Reducers/dialogs-reducer";
+import Card from "@mui/material/Card";
+import Typography from "@mui/material/Typography";
+
 type DialogsPropsType = {
     dialogsPage: DialogsDataType
     isAuth: boolean
@@ -21,9 +23,10 @@ export const Dialogs = (props: DialogsPropsType) => {
         return <Redirect to={"/login"}/>
     }
     return (
-       <>
-           {dialogsElement}
-       </>
+       <Card sx={{padding:5,borderRadius:5} }>
+           <Typography variant='h4' align='center' sx={{paddingBottom:3}} >Messages</Typography>
+                    {dialogsElement}
+       </Card>
     )
 
 }

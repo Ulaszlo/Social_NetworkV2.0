@@ -62,7 +62,7 @@ export function ProfileInfo(props: ProfileInfoType) {
                                 </DialogContentText>
                             </DialogContent>
                             <DialogActions>
-                                <InputFileUpload savePhoto={props.savePhoto}/>
+                                <InputFileUpload isOwner={props.isOwner} savePhoto={props.savePhoto}/>
                                 <Button onClick={handleClose}>CANCEL</Button>
                             </DialogActions>
                         </Dialog>

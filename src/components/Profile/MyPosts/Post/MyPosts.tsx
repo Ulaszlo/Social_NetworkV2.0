@@ -19,18 +19,33 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
     marginLeft: 'auto',
 }));
 export const MyPosts = React.memo((props: MyPostType) => {
+    const VisuallyHiddenInput = styled('input')({
+        clip: 'rect(0 0 0 0)',
+        clipPath: 'inset(50%)',
+        height: 1,
+        overflow: 'hidden',
+        position: 'absolute',
+        bottom: 0,
+        left: 0,
+        whiteSpace: 'nowrap',
+        width: 1,
+    });
     const myPostFormik = useFormik({
         initialValues: {
             newPost: '',
+            photo: undefined
         },
         onSubmit: values => {
             props.addPost(values.newPost)
+            values.newPost=""
         },
     });
-    let postsElement = props.posts.map(((p: { message: string; likeCount: number; }) => <Post profile={props.profile}
+    let postsElement = props.posts.map(((p: { message: string; likeCount: number; photo:string | undefined }) => <Post profile={props.profile}
                                                                                               userPhoto={props.profile?.photos.small}
                                                                                               message={p.message}
-                                                                                              likeCount={p.likeCount}/>
+                                                                                              likeCount={p.likeCount}
+                                                                                              photo={p.photo}
+        />
     ))
     const [expanded, setExpanded] = React.useState(false);
 
@@ -41,7 +56,6 @@ export const MyPosts = React.memo((props: MyPostType) => {
         <>
             <Card sx={{minWidth: 1000, maxWidth: 1000, marginBottom: 2, borderRadius: 5}}>
                 <form onSubmit={myPostFormik.handleSubmit}>
-                    {/*<img className={style.userAvatar} src={props.profile?.photos.small || StandardUserAvatar}/>*/}
                     <ExpandMore
 
                         expand={expanded}
@@ -53,7 +67,7 @@ export const MyPosts = React.memo((props: MyPostType) => {
                         <TextField
                             sx={{paddingLeft: 6, width: 900, paddingRight: 6, minHeight: 20}}
                             multiline
-                            placeholder="Что у вас нового?"
+                            placeholder="Double click to write a post"
                             id="newPost"
                             name="newPost"
                             type="text"
@@ -61,7 +75,7 @@ export const MyPosts = React.memo((props: MyPostType) => {
                             value={myPostFormik.values.newPost}
                             variant="standard"
                             margin="dense"
-
+                            required
                         />
                     </ExpandMore>
 

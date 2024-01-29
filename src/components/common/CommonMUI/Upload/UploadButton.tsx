@@ -17,8 +17,9 @@ const VisuallyHiddenInput = styled('input')({
 
 export default function InputFileUpload(props: any) {
     const onChangeFile = (e: any) => {
-        if (e.target.files.length) {
+        if (e.target.files.length && props.isOwner=== true ) {
             props.savePhoto(e.target.files[0])
+
         }
 
     }

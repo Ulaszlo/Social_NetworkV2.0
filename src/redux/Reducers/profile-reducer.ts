@@ -19,12 +19,20 @@ export type AllActionsType = AddPostActionCreatorType | setUserProfileType | set
 let initialState: ProfileInitialStateType = {
     newPostText: '',
     posts: [
-        {message: 'React надо учить по-настоящему, или его совсем не учить. Середины тут быть не может.', likeCount: 0},
+        {
+            message: 'React надо учить по-настоящему, или его совсем не учить. Середины тут быть не может.',
+            likeCount: 0,
+            photo:"https://masterpiecer-images.s3.yandex.net/13fd5148748e11ee8edb2aacdc0146ad:upscaled"
+        },
         {
             message: 'Надо иметь в голове чёткую картину того, чего хочешь достичь, и стремиться к этой цели каждый день',
-            likeCount: 21
+            likeCount: 21, photo:"https://masterpiecer-images.s3.yandex.net/13fd5148748e11ee8edb2aacdc0146ad:upscaled"
         },
-        {message: 'Всем привет! это мой первый пост.)))))', likeCount: 11},
+        {
+            message: 'Всем привет! это мой первый пост.)))))',
+            likeCount: 11,
+            photo: "https://images.wallpapershq.com/wallpapers/979/thumbnail_600x337.webp"
+        },
     ],
     profile: null,
     UserStatus: ''
@@ -40,6 +48,7 @@ export const profileReducer = (state = initialState, action: AllActionsType): Pr
     switch (action.type) {
 
         case ADD_POST: {
+
             let newPost = {message: action.currentPostText, likeCount: 0}
             let stateCopy = {
                 ...state,
@@ -76,11 +85,10 @@ export const profileReducer = (state = initialState, action: AllActionsType): Pr
 // Автоматически возвращаемый тип для AddPostActionCreator
 export type AddPostActionCreatorType = ReturnType<typeof AddPostActionCreator>
 // ActionCreator добавления поста
-export const AddPostActionCreator = (currentPostText: string) => {
+export const AddPostActionCreator = (currentPostText: string,) => {
     return {
         type:ADD_POST,
-        currentPostText
-
+        currentPostText,
     } as const
 }
 // Автоматически возвращаемый тип для setUserProfileActionCreator

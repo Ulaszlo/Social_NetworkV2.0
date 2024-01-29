@@ -1,6 +1,11 @@
 import React, {useState} from "react";
 import styles from "./Paginator.module.css";
 import cn from "classnames";
+import Button from "@mui/material/Button";
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import IconButton from "@mui/material/IconButton";
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+
 type PaginatorType = {
     totalItemsCount:number
     pageSize:number
@@ -25,22 +30,20 @@ export let Paginator:React.FC<PaginatorType> = ({totalItemsCount, pageSize, curr
 
     return <div className={styles.paginator}>
         { portionNumber > 1 &&
-            <button onClick={() => { setPortionNumber(portionNumber - 1) }}>PREV</button> }
+            <IconButton onClick={() => { setPortionNumber(portionNumber - 1) }}><ArrowBackIosIcon/></IconButton> }
 
         {pages
             .filter(p => p >= leftPortionPageNumber && p<=rightPortionPageNumber)
             .map((p) => {
-                return <span className={ cn({
+                return <Button className={ cn({
                     [styles.selectedPage]: currentPage === p
                 }, styles.pageNumber) }
                              key={p}
                              onClick={(e) => {
                                  onPageChanged(p);
-                             }}>{p}</span>
+                             }}>{p}</Button>
             })}
         { portionCount > portionNumber &&
-            <button onClick={() => { setPortionNumber(portionNumber + 1) }}>NEXT</button> }
-
-
+            <IconButton onClick={() => { setPortionNumber(portionNumber + 1) }}><ArrowForwardIosIcon/></IconButton> }
     </div>
 }
